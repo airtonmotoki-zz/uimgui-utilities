@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cc02dfb0222ca47b5a1a67cb82b61e, type: 3}
+  m_Name: ImGuiMenuInputTextECS
+  m_EditorClassIdentifier: 
+  _label: ECS text
+  _lenght: 1024
+  _flags: 0
+  _buttonLabel: send

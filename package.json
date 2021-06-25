@@ -1,0 +1,27 @@
+{
+  "name": "com.airtonmotoki.uimgui-utilities",
+  "displayName": "UImGui Utilities",
+  "version": "1.0.0",
+  "description": "ECS Inspector in runtime",
+  "unity": "2020.3",
+  "keywords": [
+    "imgui",
+    "ui",
+	"tools",
+	"ecs",
+	"inspector"
+  ],
+  "author": {
+    "name": "Airton Motoki",
+    "url": "https://github.com/airtonmotoki"
+  },
+  "dependencies": {
+	
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airtonmotoki/uimgui-utilities",
+    "revision": ""
+  },
+  "type": "library"
+}
