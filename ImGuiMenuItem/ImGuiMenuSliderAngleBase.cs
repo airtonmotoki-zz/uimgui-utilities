@@ -9,7 +9,11 @@ namespace ImGuiManager.MenuItem
 	{
 		[SerializeField]
 		private string _label;
-
+		[SerializeField]
+		private float _minDegrees;
+		[SerializeField]
+		private float _maxDegrees;
+		
 		private float _value;
 
 		public override bool IsWindow() => false;
@@ -17,7 +21,7 @@ namespace ImGuiManager.MenuItem
 		public override void OnLayoutMenu()
 		{
 			_value = Read();
-			if (ImGui.SliderAngle(_label, ref _value))
+			if (ImGui.SliderAngle(_label, ref _value, _minDegrees, _maxDegrees))
 			{
 				Write(_value);
 			}
