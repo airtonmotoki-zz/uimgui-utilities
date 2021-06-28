@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346acffef58eb16429ae2ace4386044f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa3a54ff87ebb69469c7e54705d2a5d9, type: 3}
   m_Name: ImGuiMenuBarTest
   m_EditorClassIdentifier: 
   _imGuiMenuBarContent:
-  - _name: Sample
+  - _name: Mono Sample
     _imGuiMenuItemBase:
     - {fileID: 11400000, guid: 4ef7665310227d0428acced642c4bb5b, type: 2}
     - {fileID: 11400000, guid: 9d9a03c6183a31e4c913cfa69a5eb7c2, type: 2}

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79540d7c07622a24cace02a9aa1ebadf, type: 3}
+  m_Script: {fileID: 11500000, guid: 53609639d05fdaf47a27846ed4ccbd0f, type: 3}
   m_Name: ImGuiMenuCheckboxTest
   m_EditorClassIdentifier: 
-  _label: Checkbox
+  _label: Mono Checkbox Sample

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 993df4bdf776b8040aa26ae6b20aaae4, type: 3}
+  m_Script: {fileID: 11500000, guid: e2efbb5c07c219e4aa59e08a0e445a8d, type: 3}
   m_Name: ImGuiWindowTest
   m_EditorClassIdentifier: 
-  _name: Window
+  _name: Mono Window Sample
   _flags: 0

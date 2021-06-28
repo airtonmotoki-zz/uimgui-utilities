@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dace9459e5a30848a5b22ac721f92f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bc0b008e6f8b5f4197d3a323c2713d7, type: 3}
   m_Name: ImGuiMenuSliderIntTest
   m_EditorClassIdentifier: 
-  _label: int
-  _min: -10
-  _max: 10
+  _label: Mono Slider Int Sample
+  _min: 0
+  _max: 100

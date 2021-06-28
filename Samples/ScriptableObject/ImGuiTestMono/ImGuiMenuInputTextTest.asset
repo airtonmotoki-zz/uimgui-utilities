@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a764b829496d47d4c9a40c1291217f9c, type: 3}
+  m_Script: {fileID: 11500000, guid: ffe7334d7f5dcc4479b3160aa8adaddb, type: 3}
   m_Name: ImGuiMenuInputTextTest
   m_EditorClassIdentifier: 
-  _label: inputtest
-  _lenght: 1024
-  _flags: 32
-  _buttonLabel: 
+  _label: Mono Input Text Sample
+  _lenght: 32
+  _flags: 0
+  _buttonLabel: Ok
