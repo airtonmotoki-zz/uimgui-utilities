@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce733c4abec15478af0658d545762b, type: 3}
+  m_Name: UImGuiMenuSliderAngleTest
+  m_EditorClassIdentifier: 
+  _label: Mono Slider Angle Sample
+  _minDegrees: 0
+  _maxDegrees: 180

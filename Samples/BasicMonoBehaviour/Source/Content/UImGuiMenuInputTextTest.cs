@@ -1,0 +1,20 @@
+﻿using UImGuiManager.Core;
+using UImGuiManager.MenuItem;
+using UnityEngine;
+
+namespace UImGuiManager.Samples
+{
+	[CreateAssetMenu(fileName = "ImGuiMenuInputTextTest", menuName = "ImGui/Sample/ImGuiMenuInputTextTest", order = 1)]
+	public class UImGuiMenuInputTextTest : UImGuiMenuInputTextBase<Empty>
+	{
+		public override string Read()
+		{
+			return "";
+		}
+
+		public override void Write(string value)
+		{
+			UnityEngine.Debug.Log(value);
+		}
+	}
+}
