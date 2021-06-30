@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace UImGuiManager.Samples
 {
-	[CreateAssetMenu(fileName = "ImGuiMenuSliderFloatTest", menuName = "ImGui/Sample/ImGuiMenuSliderFloatTest", order = 1)]
-	public class UImGuiMenuSliderFloatTest : UImGuiMenuSliderFloatBase<Empty>
+	[CreateAssetMenu(fileName = "ImGuiMenuSliderAngleTest", menuName = "ImGui/SampleMonoBehaviour/ImGuiMenuSliderAngleTest", order = 1)]
+	public class UImGuiMenuSliderAngleTest : UImGuiMenuSliderAngleBase<Empty>
 	{
 		public override float Read()
 		{

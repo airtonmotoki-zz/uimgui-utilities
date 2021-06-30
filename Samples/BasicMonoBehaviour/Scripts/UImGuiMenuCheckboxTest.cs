@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UImGuiManager.Samples
 {
-	[CreateAssetMenu(fileName = "ImGuiMenuCheckboxTest", menuName = "ImGui/Sample/ImGuiMenuCheckboxTest", order = 1)]
+	[CreateAssetMenu(fileName = "ImGuiMenuCheckboxTest", menuName = "ImGui/SampleMonoBehaviour/ImGuiMenuCheckboxTest", order = 1)]
 	public class UImGuiMenuCheckboxTest : UImGuiMenuCheckboxBase<Empty>
 	{
 		public override bool Read()

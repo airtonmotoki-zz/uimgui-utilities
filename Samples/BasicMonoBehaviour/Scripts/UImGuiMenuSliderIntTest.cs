@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UImGuiManager.Samples
 {
-	[CreateAssetMenu(fileName = "ImGuiMenuSliderIntTest", menuName = "ImGui/Sample/ImGuiMenuSliderIntTest", order = 1)]
+	[CreateAssetMenu(fileName = "ImGuiMenuSliderIntTest", menuName = "ImGui/SampleMonoBehaviour/ImGuiMenuSliderIntTest", order = 1)]
 	public class UImGuiMenuSliderIntTest : UImGuiMenuSliderIntBase<Empty>
 	{
 		public override int Read()

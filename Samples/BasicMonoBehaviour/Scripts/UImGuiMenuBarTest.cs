@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UImGuiManager.Samples
 {
-	[CreateAssetMenu(fileName = "ImGuiMenuBarTest", menuName = "ImGui/Sample/ImGuiMenuBarTest", order = 1)]
+	[CreateAssetMenu(fileName = "ImGuiMenuBarTest", menuName = "ImGui/SampleMonoBehaviour/ImGuiMenuBarTest", order = 1)]
 	public class UImGuiMenuBarTest : UImGuiMenuBarBase<Empty>
 	{
 

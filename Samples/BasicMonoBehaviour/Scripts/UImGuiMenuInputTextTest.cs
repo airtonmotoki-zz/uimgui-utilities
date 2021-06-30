@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UImGuiManager.Samples
 {
-	[CreateAssetMenu(fileName = "ImGuiMenuInputTextTest", menuName = "ImGui/Sample/ImGuiMenuInputTextTest", order = 1)]
+	[CreateAssetMenu(fileName = "ImGuiMenuInputTextTest", menuName = "ImGui/SampleMonoBehaviour/ImGuiMenuInputTextTest", order = 1)]
 	public class UImGuiMenuInputTextTest : UImGuiMenuInputTextBase<Empty>
 	{
 		public override string Read()
