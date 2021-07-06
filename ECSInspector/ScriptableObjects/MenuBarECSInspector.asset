@@ -16,3 +16,4 @@ MonoBehaviour:
   - _name: Entity Inspector
     _imGuiMenuItemBase:
     - {fileID: 11400000, guid: 53738db2bbcb7b54285aea30c030ff05, type: 2}
+    - {fileID: 11400000, guid: 35ec3c3a9e411ff4fa10522df96fe752, type: 2}

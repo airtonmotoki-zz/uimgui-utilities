@@ -35,7 +35,6 @@ namespace UImGuiManager.EntitiesInspector
 						if (ImGui.Selectable(entity.Index.ToString(), (UImGuiEntityInspectorWindow.SelectedEntity == entity), ImGuiSelectableFlags.SpanAllColumns | ImGuiSelectableFlags.AllowItemOverlap))
 						{
 							UImGuiEntityInspectorWindow.SelectedEntity = entity;
-							UnityEngine.Debug.Log(entityManager.GetName(entity));
 						}
 					}
 
