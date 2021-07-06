@@ -30,7 +30,6 @@ namespace UImGuiManager.Samples
 				{
 					var entity = allEntities[index];
 
-					ImGui.PushID(entity.Index);
 					ImGui.TableNextRow();
 
 					if (ImGui.TableSetColumnIndex(0))
@@ -51,9 +50,6 @@ namespace UImGuiManager.Samples
 					{
 						ImGui.Text(entityManager.GetName(entity));
 					}
-
-					ImGui.PopID();
-
 				}
 
 				ImGui.EndTable();
