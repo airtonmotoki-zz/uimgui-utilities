@@ -1,7 +1,7 @@
 ﻿using UImGuiManager.Core;
 using UnityEngine;
 
-namespace UImGuiManager.Samples
+namespace UImGuiManager.EntitiesInspector
 {
 	[CreateAssetMenu(fileName = "ImGuiWindowTest", menuName = "ImGui/SampleMonoBehaviour/ImGuiWindowTest", order = 1)]
 	public class UImGuiWindowTest : UImGuiWindowBase<Empty>

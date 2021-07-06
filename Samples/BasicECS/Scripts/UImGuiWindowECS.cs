@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace UImGuiManager.Samples
+namespace UImGuiManager.EntitiesInspector
 {
 	[CreateAssetMenu(fileName = "ImGuiWindowECS", menuName = "ImGui/SampleECS/ImGuiWindowECS", order = 1)]
 	public class UImGuiWindowECS : UImGuiWindowBase<World>

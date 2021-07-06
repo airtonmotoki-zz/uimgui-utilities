@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace UImGuiManager.Samples
+namespace UImGuiManager.EntitiesInspector
 {
 	[CreateAssetMenu(fileName = "ImGuiMenuSliderAngleECS", menuName = "ImGui/SampleECS/ImGuiMenuSliderAngleECS", order = 1)]
 	public class UImGuiMenuSliderAngleECS : UImGuiMenuSliderAngleBase<World>

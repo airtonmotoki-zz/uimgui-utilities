@@ -4,12 +4,11 @@ using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
-namespace UImGuiManager.Samples
+namespace UImGuiManager.EntitiesInspector
 {
-	[CreateAssetMenu(fileName = "EntitiesWindow", menuName = "ImGui/SampleECSInspector/Entities Window", order = 1)]
+	[CreateAssetMenu(fileName = "EntitiesWindow", menuName = "ImGui/EntitiesInspector/Entities Window", order = 1)]
 	public class UImGuiEntitiesWindow : UImGuiWindowBase<World>
 	{
-		public static Entity SelectedEntity;
 
 		public override void OnLayoutWindow()
 		{
@@ -34,9 +33,9 @@ namespace UImGuiManager.Samples
 
 					if (ImGui.TableSetColumnIndex(0))
 					{
-						if (ImGui.Selectable(entity.Index.ToString(), (SelectedEntity == entity), ImGuiSelectableFlags.SpanAllColumns | ImGuiSelectableFlags.AllowItemOverlap))
+						if (ImGui.Selectable(entity.Index.ToString(), (UImGuiEntityInspectorWindow.SelectedEntity == entity), ImGuiSelectableFlags.SpanAllColumns | ImGuiSelectableFlags.AllowItemOverlap))
 						{
-							SelectedEntity = entity;
+							UImGuiEntityInspectorWindow.SelectedEntity = entity;
 							UnityEngine.Debug.Log(entityManager.GetName(entity));
 						}
 					}

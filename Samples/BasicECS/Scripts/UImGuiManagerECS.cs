@@ -1,7 +1,7 @@
 ﻿using UImGuiManager.Core;
 using Unity.Entities;
 
-namespace UImGuiManager.Samples
+namespace UImGuiManager.EntitiesInspector
 {
 	public class UImGuiManagerECS : UImGuiManagerBase<World>
 	{

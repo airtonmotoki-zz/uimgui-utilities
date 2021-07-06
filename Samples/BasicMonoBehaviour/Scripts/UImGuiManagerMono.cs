@@ -1,6 +1,6 @@
 ﻿using UImGuiManager.Core;
 
-namespace UImGuiManager.Samples
+namespace UImGuiManager.EntitiesInspector
 {
 	public class UImGuiManagerMono : UImGuiManagerBase<Empty>
 	{

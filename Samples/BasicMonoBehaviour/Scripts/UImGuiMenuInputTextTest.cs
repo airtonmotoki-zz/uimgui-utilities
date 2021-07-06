@@ -2,7 +2,7 @@
 using UImGuiManager.MenuItem;
 using UnityEngine;
 
-namespace UImGuiManager.Samples
+namespace UImGuiManager.EntitiesInspector
 {
 	[CreateAssetMenu(fileName = "ImGuiMenuInputTextTest", menuName = "ImGui/SampleMonoBehaviour/ImGuiMenuInputTextTest", order = 1)]
 	public class UImGuiMenuInputTextTest : UImGuiMenuInputTextBase<Empty>

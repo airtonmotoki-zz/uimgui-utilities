@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace UImGuiManager.Samples
+namespace UImGuiManager.EntitiesInspector
 {
 
 	[CreateAssetMenu(fileName = "ImGuiMenuSliderIntECS", menuName = "ImGui/SampleECS/ImGuiMenuSliderIntECS", order = 1)]

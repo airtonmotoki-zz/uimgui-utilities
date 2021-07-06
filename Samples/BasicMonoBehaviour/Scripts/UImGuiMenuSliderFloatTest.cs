@@ -2,7 +2,7 @@
 using UImGuiManager.MenuItem;
 using UnityEngine;
 
-namespace UImGuiManager.Samples
+namespace UImGuiManager.EntitiesInspector
 {
 	[CreateAssetMenu(fileName = "ImGuiMenuSliderFloatTest", menuName = "ImGui/SampleMonoBehaviour/ImGuiMenuSliderFloatTest", order = 1)]
 	public class UImGuiMenuSliderFloatTest : UImGuiMenuSliderFloatBase<Empty>

@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace UImGuiManager.Samples
+namespace UImGuiManager.EntitiesInspector
 {
 	[CreateAssetMenu(fileName = "ImGuiMenuCheckboxECS", menuName = "ImGui/SampleECS/ImGuiMenuCheckboxECS", order = 1)]
 	public class UImGuiMenuCheckboxECS : UImGuiMenuCheckboxBase<World>
