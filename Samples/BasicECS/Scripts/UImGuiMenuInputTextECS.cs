@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UImGuiManager.EntitiesInspector
 {
-	[CreateAssetMenu(fileName = "ImGuiMenuInputTextECS", menuName = "ImGui/SampleECS/ImGuiMenuInputTextECS", order = 1)]
+	[CreateAssetMenu(fileName = "ImGuiMenuInputTextECS", menuName = "ImGui/Sample ECS/ImGuiMenuInputTextECS", order = 1)]
 	public class UImGuiMenuInputTextECS : UImGuiMenuInputTextBase<World>
 	{
 		public override string Read()

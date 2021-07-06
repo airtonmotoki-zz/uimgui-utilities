@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UImGuiManager.EntitiesInspector
 {
-	[CreateAssetMenu(fileName = "ImGuiMenuBarECS", menuName = "ImGui/SampleECS/ImGuiMenuBarECS", order = 1)]
+	[CreateAssetMenu(fileName = "ImGuiMenuBarECS", menuName = "ImGui/Sample ECS/ImGuiMenuBarECS", order = 1)]
 	public class UImGuiMenuBarECS : UImGuiMenuBarBase<World>
 	{
 

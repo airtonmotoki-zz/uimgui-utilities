@@ -6,10 +6,9 @@ using UnityEngine;
 
 namespace UImGuiManager.EntitiesInspector
 {
-	[CreateAssetMenu(fileName = "EntitiesWindow", menuName = "ImGui/EntitiesInspector/Entities Window", order = 1)]
+	[CreateAssetMenu(fileName = "EntitiesWindow", menuName = "ImGui/Entities Inspector/Entities Window", order = 1)]
 	public class UImGuiEntitiesWindow : UImGuiWindowBase<World>
 	{
-
 		public override void OnLayoutWindow()
 		{
 			var entityManager = Context.EntityManager;

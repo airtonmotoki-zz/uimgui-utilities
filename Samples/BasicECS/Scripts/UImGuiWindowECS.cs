@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UImGuiManager.EntitiesInspector
 {
-	[CreateAssetMenu(fileName = "ImGuiWindowECS", menuName = "ImGui/SampleECS/ImGuiWindowECS", order = 1)]
+	[CreateAssetMenu(fileName = "ImGuiWindowECS", menuName = "ImGui/Sample ECS/ImGuiWindowECS", order = 1)]
 	public class UImGuiWindowECS : UImGuiWindowBase<World>
 	{
 		public override void OnLayoutWindow()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UImGuiManager.EntitiesInspector
 {
-	[CreateAssetMenu(fileName = "ImGuiMenuSliderAngleECS", menuName = "ImGui/SampleECS/ImGuiMenuSliderAngleECS", order = 1)]
+	[CreateAssetMenu(fileName = "ImGuiMenuSliderAngleECS", menuName = "ImGui/Sample ECS/ImGuiMenuSliderAngleECS", order = 1)]
 	public class UImGuiMenuSliderAngleECS : UImGuiMenuSliderAngleBase<World>
 	{
 		public override float Read()

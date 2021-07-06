@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UImGuiManager.EntitiesInspector
 {
-	[CreateAssetMenu(fileName = "ImGuiMenuCheckboxECS", menuName = "ImGui/SampleECS/ImGuiMenuCheckboxECS", order = 1)]
+	[CreateAssetMenu(fileName = "ImGuiMenuCheckboxECS", menuName = "ImGui/Sample ECS/ImGuiMenuCheckboxECS", order = 1)]
 	public class UImGuiMenuCheckboxECS : UImGuiMenuCheckboxBase<World>
 	{
 		public override bool Read()
