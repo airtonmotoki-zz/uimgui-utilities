@@ -40,7 +40,7 @@ namespace UImGuiManager.EntitiesInspector
 
 			#region Search
 			{
-				ImGui.InputText("Filter Component", ref _filterValue, 512);
+				ImGui.InputText("Filter", ref _filterValue, 512);
 			}
 			#endregion
 
@@ -98,7 +98,7 @@ namespace UImGuiManager.EntitiesInspector
 			
 			if (type.IsPrimitive)
 			{
-				if (ImGui.TreeNodeEx($"{labelPrefix}{labelPosfix}{obj.ToString()}", DefaultLeaf))
+				if (ImGui.TreeNodeEx($"{labelPrefix}{labelPosfix}{obj}", DefaultLeaf))
 				{
 					ImGui.TreePop();
 				}
@@ -251,7 +251,6 @@ namespace UImGuiManager.EntitiesInspector
 			var obj = methodInfo.Invoke(entityManager, new object[] { entity });
 
 			var type = obj.GetType();
-			UnityEngine.Debug.Log(type);
 
 			return obj;
 		}
