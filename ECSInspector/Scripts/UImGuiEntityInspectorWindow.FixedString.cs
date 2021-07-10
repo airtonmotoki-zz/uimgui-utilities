@@ -6,14 +6,6 @@ namespace UImGuiManager.EntitiesInspector
 {
 	public partial class UImGuiEntityInspectorWindow
 	{
-		public void DrawComponent(string obj)
-		{
-			if (ImGui.TreeNodeEx($"{obj}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
 		public void DrawComponent(FixedString32 obj)
 		{
 			DrawComponent(obj.ToString());

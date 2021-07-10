@@ -1,6 +1,8 @@
 ﻿using ImGuiNET;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UImGuiManager.Core;
 using Unity.Collections;
 using Unity.Entities;
@@ -16,8 +18,8 @@ namespace UImGuiManager.EntitiesInspector
 
 		private string _filterValue = "";
 
-		private ImGuiTreeNodeFlags DefaultNode = default;
-		private ImGuiTreeNodeFlags DefaultLeaf = ImGuiTreeNodeFlags.Leaf;
+		private readonly ImGuiTreeNodeFlags DefaultNode = ImGuiTreeNodeFlags.None;
+		private readonly ImGuiTreeNodeFlags DefaultLeaf = ImGuiTreeNodeFlags.Leaf;
 
 		public override void OnLayoutWindow()
 		{
@@ -46,31 +48,27 @@ namespace UImGuiManager.EntitiesInspector
 
 			#region Flags
 			{
-				var allFlags = GetAllFlags(entityManager, SelectedEntity, Allocator.Temp);
 				if (ImGui.TreeNodeEx("Flags", DefaultNode))
 				{
-					for (var flagIndex = 0; flagIndex < allFlags.Length; flagIndex++)
+					var allFlags = GetAllFlags(entityManager, SelectedEntity);
+					for (int flagIndex = 0; flagIndex < allFlags.Count; flagIndex++)
 					{
 						var flagName = allFlags[flagIndex].ToString();
 						if (string.IsNullOrEmpty(_filterValue) || flagName.Contains(_filterValue))
 						{
-							if (ImGui.TreeNodeEx($"{flagName}", DefaultLeaf))
-							{
-								ImGui.TreePop();
-							}
+							DrawComponent(flagName);
 						}
 					}
 					ImGui.TreePop();
 				}
 				ImGui.Separator();
-				allFlags.Dispose();
 			}
 			#endregion
 
 			#region Components
 			{
-				var allComponents = GetAllNonFlags(entityManager, SelectedEntity, Allocator.Temp);
-				for (var componentIndex = 0; componentIndex < allComponents.Length; componentIndex++)
+				var allComponents = GetAllNonFlags(entityManager, SelectedEntity);
+				for (int componentIndex = 0; componentIndex < allComponents.Count; componentIndex++)
 				{
 					var componentType = allComponents[componentIndex];
 					var componentName = componentType.ToString();
@@ -86,7 +84,6 @@ namespace UImGuiManager.EntitiesInspector
 						}
 					}
 				}
-				allComponents.Dispose();
 			}
 			#endregion
 		}
@@ -139,10 +136,7 @@ namespace UImGuiManager.EntitiesInspector
 					{
 						if (ImGui.TreeNodeEx(fieldName, DefaultLeaf))
 						{
-							if (ImGui.TreeNodeEx(fieldValue.ToString(), DefaultNode | DefaultLeaf))
-							{
-								ImGui.TreePop();
-							}
+							DrawComponent(fieldValue.ToString(), DefaultNode | DefaultLeaf);
 							ImGui.TreePop();
 						}
 					}
@@ -178,181 +172,6 @@ namespace UImGuiManager.EntitiesInspector
 						ImGui.TreePop();
 					}
 				}
-			}
-		}
-
-		public static bool IsFlag(ComponentType component)
-		{
-			return !component.IsSharedComponent && !component.IsBuffer && !component.IsManagedComponent && component.IsZeroSized;
-		}
-
-		public static NativeList<ComponentType> GetAllFlags(EntityManager entityManager, Entity entity, Allocator allocator)
-		{
-			var list = new NativeList<ComponentType>(allocator);
-			var components = entityManager.GetComponentTypes(entity);
-
-			for (var index = 0; index < components.Length; index++)
-			{
-				var component = components[index];
-				if (IsFlag(component))
-				{
-					list.Add(component);
-				}
-			}
-
-			return list;
-		}
-
-		public static NativeList<ComponentType> GetAllNonFlags(EntityManager entityManager, Entity entity, Allocator allocator)
-		{
-			var list = new NativeList<ComponentType>(allocator);
-			var components = entityManager.GetComponentTypes(entity);
-
-			for (var index = 0; index < components.Length; index++)
-			{
-				var component = components[index];
-				if (!IsFlag(component))
-				{
-					list.Add(component);
-				}
-			}
-
-			return list;
-		}
-
-		public static object GetComponent(EntityManager entityManager, ComponentType component, Entity entity)
-		{
-			var entityManagerType = entityManager.GetType();
-
-			var methodName = "";
-			if (component.IsSharedComponent)
-			{
-				methodName = nameof(entityManager.GetSharedComponentData);
-			}
-			else if (component.IsBuffer)
-			{
-				methodName = nameof(entityManager.GetBuffer);
-			}
-			else if (component.IsManagedComponent)
-			{
-				methodName = nameof(entityManager.GetComponentObject);
-			}
-			else if (!component.IsZeroSized)
-			{
-				methodName = nameof(entityManager.GetComponentData);
-			}
-			else
-			{
-				return component;
-			}
-			var genericMethod = entityManagerType.GetMethod(methodName, new Type[] { typeof(Entity) });
-			var methodInfo = genericMethod.MakeGenericMethod(component.GetManagedType());
-
-			var obj = methodInfo.Invoke(entityManager, new object[] { entity });
-
-			var type = obj.GetType();
-
-			return obj;
-		}
-
-		public void DrawComponent(int2 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(int3 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y} z:{obj.z}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(int4 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y} z:{obj.z} w:{obj.w}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(uint2 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(uint3 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y} z:{obj.z}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(uint4 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y} z:{obj.z} w:{obj.w}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(float2 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(float3 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y} z:{obj.z}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(float4 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y} z:{obj.z} w:{obj.w}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(quaternion obj)
-		{
-			DrawComponent(obj.value);
-		}
-
-		public void DrawComponent(double2 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(double3 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y} z:{obj.z}", DefaultLeaf))
-			{
-				ImGui.TreePop();
-			}
-		}
-
-		public void DrawComponent(double4 obj)
-		{
-			if (ImGui.TreeNodeEx($"x:{obj.x} y:{obj.y} z:{obj.z} w:{obj.w}", DefaultLeaf))
-			{
-				ImGui.TreePop();
 			}
 		}
 	}
