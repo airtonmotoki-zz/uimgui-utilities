@@ -7,21 +7,20 @@
   "keywords": [
     "imgui",
     "ui",
-	"tools",
-	"ecs",
-	"inspector"
+    "tools",
+    "ecs",
+    "inspector"
   ],
   "author": {
     "name": "Airton Motoki",
     "url": "https://github.com/airtonmotoki"
   },
   "dependencies": {
-	
+    "com.unity.entities": "0.17.0-preview.42"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/airtonmotoki/uimgui-utilities",
     "revision": ""
-  },
-  "type": "library"
+  }
 }
