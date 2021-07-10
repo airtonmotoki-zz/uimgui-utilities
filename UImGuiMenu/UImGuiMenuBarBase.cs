@@ -19,17 +19,18 @@ namespace UImGuiManager.Core
 
 		public void OnLayoutMenu()
 		{
-			ImGui.BeginMainMenuBar();
-			if (ImGui.BeginMenuBar())
+			if (ImGui.BeginMainMenuBar())
 			{
-				for (var indexMenu = 0; indexMenu < _imGuiMenuBarContent.Count; indexMenu++)
+				if (ImGui.BeginMenuBar())
 				{
-					_imGuiMenuBarContent[indexMenu].OnLayoutMenu();
+					for (var indexMenu = 0; indexMenu < _imGuiMenuBarContent.Count; indexMenu++)
+					{
+						_imGuiMenuBarContent[indexMenu].OnLayoutMenu();
+					}
+					ImGui.EndMenuBar();
 				}
-				ImGui.EndMenuBar();
+				ImGui.End();
 			}
-			ImGui.End();
-
 		}
 
 		public void RegisterWindow()
