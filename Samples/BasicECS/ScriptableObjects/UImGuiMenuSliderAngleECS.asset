@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: UImGuiMenuSliderAngleECS
   m_EditorClassIdentifier: 
   _label: ecs angle
+  _minDegrees: 0
+  _maxDegrees: 360
