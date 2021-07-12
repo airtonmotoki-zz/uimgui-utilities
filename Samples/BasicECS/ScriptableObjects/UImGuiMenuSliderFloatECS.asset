@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c1a66817f7c8045ba9f4551cdc7164, type: 3}
   m_Name: UImGuiMenuSliderFloatECS
   m_EditorClassIdentifier: 
-  _label: ecs float
+  _label: ECS Float
   _min: -10
   _max: 100

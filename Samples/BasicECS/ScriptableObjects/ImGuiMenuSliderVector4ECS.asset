@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03cc02dfb0222ca47b5a1a67cb82b61e, type: 3}
-  m_Name: UImGuiMenuInputTextECS
+  m_Script: {fileID: 11500000, guid: 6c5c7c5e305e23e418361f079392d875, type: 3}
+  m_Name: ImGuiMenuSliderVector4ECS
   m_EditorClassIdentifier: 
-  _label: ECS Text
-  _lenght: 1024
-  _flags: 0
-  _buttonLabel: Send
+  _label: ECS Vector4 Test
+  _min: 0
+  _max: 100
