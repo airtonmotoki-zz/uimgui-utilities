@@ -10,38 +10,58 @@ namespace UImGuiManager.EntitiesInspector
 	[CreateAssetMenu(fileName = "EntitiesWindow", menuName = "ImGui/Entities Inspector/Entities Window", order = 1)]
 	public class UImGuiEntitiesWindow : UImGuiWindowBase<World>
 	{
+		#region Entity Table Data
 		private struct EntityTableEntry
 		{
 			public Entity Entity;
 			public string Name;
 		}
 
-		private abstract class ColumnComparer<T> : IComparer<T>
+		private class EntityIndexAscendingComparer : IComparer<EntityTableEntry>
 		{
-			public abstract int Compare(T x, T y);
-		}
-
-		private class EntityIndexComparer : ColumnComparer<EntityTableEntry>
-		{
-			public override int Compare(EntityTableEntry x, EntityTableEntry y)
+			public int Compare(EntityTableEntry x, EntityTableEntry y)
 			{
-				if (x.Entity.Index < y.Entity.Index) return -1;
-				if (x.Entity.Index == y.Entity.Index) return 0;
-				return 1;
+				return x.Entity.Index.CompareTo(y.Entity.Index);
 			}
 		}
-		private class EntityVersionComparer : ColumnComparer<EntityTableEntry>
+
+		private class EntityIndexDescendingComparer : IComparer<EntityTableEntry>
 		{
-			public override int Compare(EntityTableEntry x, EntityTableEntry y)
+			public int Compare(EntityTableEntry x, EntityTableEntry y)
+			{
+				return y.Entity.Index.CompareTo(x.Entity.Index);
+			}
+		}
+
+		private class EntityVersionAscendingComparer : IComparer<EntityTableEntry>
+		{
+			public int Compare(EntityTableEntry x, EntityTableEntry y)
 			{
 				return x.Entity.Version.CompareTo(y.Entity.Version);
 			}
 		}
-		private class EntityNameComparer : ColumnComparer<EntityTableEntry>
+
+		private class EntityVersionDescendingComparer : IComparer<EntityTableEntry>
 		{
-			public override int Compare(EntityTableEntry x, EntityTableEntry y)
+			public int Compare(EntityTableEntry x, EntityTableEntry y)
+			{
+				return y.Entity.Version.CompareTo(x.Entity.Version);
+			}
+		}
+
+		private class EntityNameAscendingComparer : IComparer<EntityTableEntry>
+		{
+			public int Compare(EntityTableEntry x, EntityTableEntry y)
 			{
 				return x.Name.CompareTo(y.Name);
+			}
+		}
+
+		private class EntityNameDescendingComparer : IComparer<EntityTableEntry>
+		{
+			public int Compare(EntityTableEntry x, EntityTableEntry y)
+			{
+				return y.Name.CompareTo(x.Name);
 			}
 		}
 
@@ -49,32 +69,35 @@ namespace UImGuiManager.EntitiesInspector
 		{
 			public string Name;
 			public ImGuiTableColumnFlags Flags;
-			public ColumnComparer<EntityTableEntry> Comparer;
+			public IComparer<EntityTableEntry> AscendingComparer;
+			public IComparer<EntityTableEntry> DescendingComparer;
 		}
+		#endregion
 
-		private TableColumn[] _columns = new TableColumn[]
+		private static TableColumn[] _columns = new TableColumn[]
 		{
 			new TableColumn
 			{
 				Name = "Index",
 				Flags = ImGuiTableColumnFlags.DefaultSort | ImGuiTableColumnFlags.NoHide,
-				Comparer = new EntityIndexComparer()
+				AscendingComparer = new EntityIndexAscendingComparer(),
+				DescendingComparer = new EntityIndexDescendingComparer()
 			},
 			new TableColumn
 			{
 				Name = "Version",
 				Flags = default,
-				Comparer = new EntityVersionComparer()
+				AscendingComparer = new EntityVersionAscendingComparer(),
+				DescendingComparer = new EntityVersionDescendingComparer()
 			},
 			new TableColumn
 			{
 				Name = "Name",
 				Flags = ImGuiTableColumnFlags.NoHide,
-				Comparer = new EntityNameComparer()
+				AscendingComparer = new EntityNameAscendingComparer(),
+				DescendingComparer = new EntityNameDescendingComparer()
 			}
 		};
-
-		private string _filterValue = "";
 
 		private ImGuiTableFlags TableFlags =
 			ImGuiTableFlags.Borders |
@@ -82,6 +105,8 @@ namespace UImGuiManager.EntitiesInspector
 			ImGuiTableFlags.ScrollY |
 			ImGuiTableFlags.Resizable |
 			ImGuiTableFlags.Hideable;
+
+		private string _filterValue = "";
 
 		private int _lastEntityManagerVersion = -1;
 
@@ -115,6 +140,7 @@ namespace UImGuiManager.EntitiesInspector
 
 			if (ImGui.BeginTable("entities_list", _columns.Length, TableFlags))
 			{
+				// Draw Columns
 				for (var columnIndex = 0; columnIndex < _columns.Length; columnIndex++)
 				{
 					var column = _columns[columnIndex];
@@ -123,14 +149,24 @@ namespace UImGuiManager.EntitiesInspector
 
 				ImGui.TableHeadersRow();
 
+				// Sort Table Data
 				var sortSpecsPtr = ImGui.TableGetSortSpecs();
 
 				if (sortSpecsPtr.SpecsDirty)
 				{
 					var sortSpecs = sortSpecsPtr.Specs;
 					var columnSort = sortSpecs.ColumnIndex;
+					var direction = sortSpecs.SortDirection;
 
-					_allEntitiesTableEntry.Sort(_columns[columnSort].Comparer);
+					switch (direction)
+					{
+						case ImGuiSortDirection.Ascending:
+							_allEntitiesTableEntry.Sort(_columns[columnSort].AscendingComparer);
+							break;
+						case ImGuiSortDirection.Descending:
+							_allEntitiesTableEntry.Sort(_columns[columnSort].DescendingComparer);
+							break;
+					}
 
 					sortSpecsPtr.SpecsDirty = false;
 				}
