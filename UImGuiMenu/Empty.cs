@@ -1,7 +1,4 @@
 ﻿namespace UImGuiManager.Core
 {
-	public struct Empty
-	{
-
-	}
+	public struct Empty { }
 }

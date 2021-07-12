@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834d4215a91258448a63f660ec0a3655, type: 3}
   m_Name: UImGuiMenuSliderAngleECS
   m_EditorClassIdentifier: 
-  _label: ecs angle
+  _label: ECS Angle
+  _minDegrees: 0
+  _maxDegrees: 360

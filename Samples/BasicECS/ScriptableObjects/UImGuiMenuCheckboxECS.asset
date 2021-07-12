@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c77c233fd91d26409f2dd80995d65b7, type: 3}
   m_Name: UImGuiMenuCheckboxECS
   m_EditorClassIdentifier: 
-  _label: ecs checkbox
+  _label: ECS Checkbox
