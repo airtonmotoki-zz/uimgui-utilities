@@ -16,7 +16,9 @@
     "url": "https://github.com/airtonmotoki"
   },
   "dependencies": {
-    "com.unity.entities": "0.17.0-preview.42"
+    "com.unity.entities": "0.17.0-preview.42",
+    "com.unity.collections": "0.15.0-preview.21",
+    "com.unity.mathematics": "1.2.1"
   },
   "repository": {
     "type": "git",
@@ -27,17 +29,17 @@
     {
       "displayName": "Sample Basic ECS",
       "description": "Sample Basic ECS",
-	  "path": "Samples~/BasicECS"
-	},
+      "path": "Samples~/BasicECS"
+    },
     {
       "displayName": "Sample Basic MonoBehaviour",
       "description": "Sample Basic MonoBehaviour",
-	  "path": "Samples~/BasicMonoBehaviour"
-	},
+      "path": "Samples~/BasicMonoBehaviour"
+    },
     {
       "displayName": "Sample ECS Inspector",
       "description": "Sample ECS Inspector",
-	  "path": "Samples~/ECSInspector"
-	}
+      "path": "Samples~/ECSInspector"
+    }
   ]
 }

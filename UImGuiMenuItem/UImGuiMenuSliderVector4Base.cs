@@ -21,11 +21,8 @@ namespace UImGuiManager.MenuItem
 		{
 			_value = Read();
 
-			// TODO: Fix when update UImGui to 4.0.0.
-			System.Numerics.Vector4 _tempValue = new System.Numerics.Vector4(_value.x, _value.y, _value.z, _value.w);
-			if (ImGui.SliderFloat4(_label, ref _tempValue, _min, _max))
+			if (ImGui.SliderFloat4(_label, ref _value, _min, _max))
 			{
-				_value = new Vector4(_tempValue.X, _tempValue.Y, _tempValue.Z, _tempValue.W);
 				Write(_value);
 			}
 		}
