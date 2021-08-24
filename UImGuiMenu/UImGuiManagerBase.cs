@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace UImGuiManager.Core
 {
+	[RequireComponent(typeof(UImGui.UImGui))]
 	[System.Serializable]
 	public abstract class UImGuiManagerBase<TContext> : MonoBehaviour
 	{
