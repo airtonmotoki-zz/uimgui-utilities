@@ -22,5 +22,22 @@
     "type": "git",
     "url": "https://github.com/airtonmotoki/uimgui-utilities",
     "revision": ""
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Sample Basic ECS",
+      "description": "Sample Basic ECS",
+	  "path": "Samples~/BasicECS"
+	},
+    {
+      "displayName": "Sample Basic MonoBehaviour",
+      "description": "Sample Basic MonoBehaviour",
+	  "path": "Samples~/BasicMonoBehaviour"
+	},
+    {
+      "displayName": "Sample ECS Inspector",
+      "description": "Sample ECS Inspector",
+	  "path": "Samples~/ECSInspector"
+	}
+  ]
 }
